@@ -22,7 +22,7 @@ Com isso, relatórios e gráficos são gerados automaticamente sem intervenção
 
 O sistema segue uma abordagem de **Modular Monolith** (preparado para microserviços), priorizando **performance** e **consistência de dados**.
 
-![Diagrama de Containers](D:\open-finance\backend\container_diagram.png)
+![Diagrama de Containers](backend\container_diagram.png)
 
 ```plaintext
 graph TD
