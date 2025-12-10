@@ -22,49 +22,52 @@ Com isso, relatórios e gráficos são gerados automaticamente sem intervenção
 
 O sistema segue uma abordagem de **Modular Monolith** (preparado para microserviços), priorizando **performance** e **consistência de dados**.
 
-### 📐 Diagrama de Containers (C4 Model)
+![Diagrama de Containers](D:\open-finance\backend\container_diagram.png)
 
+```plaintext
 graph TD
-User((Usuário))
+    User((Usuário))
 
-subgraph Frontend ["Frontend Application"]
-    NextJS[Next.js Client]
-end
+    subgraph Frontend ["Frontend Application"]
+        NextJS[Next.js Client]
+    end
 
-subgraph Backend ["Backend System (Spring Boot)"]
-    API_GW[API Gateway / Controller]
-    Auth[User & Auth Service]
-    Sync[Bank Sync Engine]
-    Rules[Categorization Rules]
-end
+    subgraph Backend ["Backend System (Spring Boot)"]
+        API_GW[API Gateway / Controller]
+        Auth[User & Auth Service]
+        Sync[Bank Sync Engine]
+        Rules[Categorization Rules]
+    end
 
-subgraph Infra ["Infrastructure"]
-    DB[(PostgreSQL)]
-    Cache[(Redis)]
-    Queue[[RabbitMQ / Kafka]]
-end
+    subgraph Infra ["Infrastructure"]
+        DB[(PostgreSQL)]
+        Cache[(Redis)]
+        Queue[[RabbitMQ / Kafka]]
+    end
 
-subgraph External ["External Providers"]
-    OpenFinance[Open Finance Gateway\n(Pluggy/Belvo)]
-    Bank[Instituições Bancárias]
-end
+    subgraph External ["External Providers"]
+        OpenFinance[Open Finance Gateway\n(Pluggy/Belvo)]
+        Bank[Instituições Bancárias]
+    end
 
-User -->|HTTPS| NextJS
-NextJS -->|REST/JSON| API_GW
+    User -->|HTTPS| NextJS
+    NextJS -->|REST/JSON| API_GW
 
-API_GW --> Auth
-API_GW --> Sync
+    API_GW --> Auth
+    API_GW --> Sync
 
-Sync -->|Async Event| Queue
-Queue -->|Process Transaction| Rules
+    Sync -->|Async Event| Queue
+    Queue -->|Process Transaction| Rules
 
-Sync -->|Fetch Data| OpenFinance
-OpenFinance -->|OAuth2| Bank
+    Sync -->|Fetch Data| OpenFinance
+    OpenFinance -->|OAuth2| Bank
 
-Auth & Sync & Rules --> DB
-Sync -->|Cache Tokens| Cache
+    Auth & Sync & Rules --> DB
+    Sync -->|Cache Tokens| Cache
+```
 
 
+> **Nota:** A imagem deve estar acessível no caminho especificado para ser renderizada corretamente onde você deseja usá-la. Certifique-se de que o caminho seja correto conforme o ambiente em que você está trabalhando.
 
 ---
 
