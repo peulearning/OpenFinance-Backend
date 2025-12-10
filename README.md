@@ -198,23 +198,23 @@ JWT_EXPIRATION=86400000
 
 ## 🛣️ Roadmap
 
- Arquitetura Base (Spring + Next.js)
- Integração OAuth com Google
- Conector Open Finance (Mock)
- Engine de Categorização v1 (Regex)
- Integração real com Pluggy.ai
- App Mobile (React Native - Futuro
+- [x] Arquitetura Base (Spring + Next.js)
+- [x] Integração OAuth com Google
+- [ ] Conector Open Finance (Mock)
+- [ ] Engine de Categorização v1 (Regex)
+- [ ] Integração real com Pluggy.ai
+- [ ] App Mobile (React Native - Futuro)
 
 ---
 
 ## 🤝 Contribuição
 
-Contribuições são bem-vindas! Por favor, leia o CONTRIBUTING.md para detalhes sobre nosso código de conduta e o processo para enviar pull requests.
+**Contribuições são bem-vindas!** Por favor, leia o `CONTRIBUTING.md` para detalhes sobre nosso código de conduta e o processo para enviar pull requests.
 
 ---
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT - veja o arquivo LICENSE.md para detalhes.
+Este projeto está sob a licença MIT - veja o arquivo `LICENSE.md` para detalhes.
 
-Desenvolvido com ☕ e Java por [Pedro Henrique/peulearning]
+Desenvolvido com ☕ e Java por [Pedro Henrique](https://github.com/peulearning).
