@@ -1,4 +1,4 @@
-package com.financeapp.backend.sercurity;
+package com.financeapp.backend.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -27,7 +27,7 @@ public class JwtUtil {
                 .setSubject(subject)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
-                .signWith(key) 
+                .signWith(key)
                 .compact();
     }
 
