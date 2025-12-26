@@ -15,11 +15,14 @@ public class JwtUtil {
     private final long expirationMs;
 
     public JwtUtil(
-            @Value("${app.jwt.secret}") String secret,
-            @Value("${app.jwt.expiration-ms}") long expirationMs
+            @Value("${app.jwt.secret:segredo_padrao_muito_seguro_123}") String secret,
+            @Value("${app.jwt.expiration-ms:86400000}") long expirationMs
     ) {
-        this.key = Keys.hmacShaKeyFor(secret.getBytes());
+        // Garante que a chave tenha tamanho seguro para HS256 (32 bytes min)
+        String segredoFinal = (secret.length() < 32) ? "segredo_padrao_muito_seguro_123456789" : secret;
+        this.key = Keys.hmacShaKeyFor(segredoFinal.getBytes());
         this.expirationMs = expirationMs;
+
     }
 
     public String generateToken(String subject) {
