@@ -10,5 +10,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
 
   //Buscar Transação pelo Email da acc
-  List<Transaction> findByAccountEmail(String email);
+  List<Transaction> findAllByUserEmail(String email);
 }
